@@ -12,6 +12,12 @@ CLASS zcl_test DEFINITION
         iv_y             TYPE i
       RETURNING
         VALUE(rv_result) TYPE i.
+    METHODS subtract
+      IMPORTING
+        iv_x             TYPE i
+        iv_y             TYPE i
+      RETURNING
+        VALUE(rv_result) TYPE i.
 
   PROTECTED SECTION.
   PRIVATE SECTION.
@@ -39,6 +45,13 @@ CLASS ZCL_TEST IMPLEMENTATION.
     ENDIF.
 
     ro_instance = mo_instance.
+
+  ENDMETHOD.
+
+
+  METHOD subtract.
+
+    rv_result = iv_x - iv_y.
 
   ENDMETHOD.
 ENDCLASS.
