@@ -1,11 +1,11 @@
-CLASS zcl_test DEFINITION
+CLASS zcl_calculator DEFINITION
   PUBLIC
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
     CLASS-METHODS get_instance
-      RETURNING VALUE(ro_instance) TYPE REF TO zcl_test.
+      RETURNING VALUE(ro_instance) TYPE REF TO zcl_calculator.
     METHODS divide
       IMPORTING
         iv_x             TYPE i
@@ -21,12 +21,12 @@ CLASS zcl_test DEFINITION
 
   PROTECTED SECTION.
   PRIVATE SECTION.
-    CLASS-DATA: mo_instance TYPE REF TO zcl_test.
+    CLASS-DATA: mo_instance TYPE REF TO zcl_calculator.
 ENDCLASS.
 
 
 
-CLASS ZCL_TEST IMPLEMENTATION.
+CLASS ZCL_CALCULATOR IMPLEMENTATION.
 
 
   METHOD divide.
@@ -40,7 +40,7 @@ CLASS ZCL_TEST IMPLEMENTATION.
 
     IF mo_instance IS NOT BOUND.
 
-      mo_instance = NEW zcl_test( ).
+      mo_instance = NEW zcl_calculator( ).
 
     ENDIF.
 
